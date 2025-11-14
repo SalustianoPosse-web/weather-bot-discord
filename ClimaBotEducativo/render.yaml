@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: weather-bot-discord
+    env: java
+    buildCommand: mvn clean package
+    startCommand: java -cp target/classes:target/dependency/* WeatherBotDiscord
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
