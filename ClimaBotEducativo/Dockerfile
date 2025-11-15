@@ -7,4 +7,5 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-CMD ["java", "-cp", "app.jar:lib/*", "WeatherBotDiscord"]
+COPY --from=build /app/target/lib ./lib
+CMD ["java", "-jar", "app.jar"]
