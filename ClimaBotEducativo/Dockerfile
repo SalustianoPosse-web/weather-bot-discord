@@ -6,5 +6,5 @@ RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
-COPY --from=build /app/target/*-shaded.jar app.jar
+COPY --from=build /app/target/ClimaBotEducativo-1.0.jar app.jar
 CMD ["java", "-jar", "app.jar"]
